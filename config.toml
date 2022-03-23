@@ -90,6 +90,10 @@ url = "tags"
 name = "About"
 url = "about"
 
+[[extra.menu]]
+name = "Zola"
+absolute_url = "https://www.getzola.org"
+
 [extra.footer]
 start_year = "2020"  # start year of the site
 end_year = "2021"    # end year of the site

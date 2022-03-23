@@ -48,7 +48,11 @@
       <ul>
         {% if config.extra.menu %}
           {% for menu in config.extra.menu %}
-            <li><a href="{{ get_url(path=menu.url) | safe }}">{{ menu.name }}</a></li>
+            {% if menu.absolute_url %}
+              <li><a href="{{ menu.absolute_url | safe }}">{{ menu.name }}</a></li>
+            {% else %}
+              <li><a href="{{ get_url(path=menu.url) | safe }}">{{ menu.name }}</a></li>
+            {% endif %}
           {% endfor %}
         {% else %}
           <li><a href="{{ config.base_url | safe }}">Posts</a></li>
