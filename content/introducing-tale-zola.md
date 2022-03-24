@@ -5,9 +5,7 @@ date = 2021-05-04T14:08:08+00:00
 
 [taxonomies]
 tags = ["Tale"]
-
-[extra]
-author = "Aaran Xu"
+authors = ["Aaran Xu", "Rustaceans"]
 +++
 
 Tala-Zola is a minimal [Zola](https://www.getzola.org) theme helping you to

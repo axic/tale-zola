@@ -17,8 +17,8 @@
     {% set title = "" -%}
   {% endif -%}
 
-  {% if page.extra.author -%}
-		{% set author = page.extra.author -%}
+  {% if page.taxonomies.authors %}
+		{% set author = page.taxonomies.authors | join(sep=", ") -%}
   {% endif -%}
 
   {% if page.description -%}
@@ -47,8 +47,20 @@
 {% block content %}
   <div class="post">
   	<div class="post-info">
-  		{% if page.extra.author -%}
-  			<span>{{ config.extra.expressions.written_by | default(value="Written by") }}</span> {{ page.extra.author }}<br>
+  		{% if page.taxonomies.authors %}
+  			<span>{{ config.extra.expressions.written_by | default(value="Written by") }}</span>
+  			{% for author in page.taxonomies.authors %}
+  			<a href="{{ get_taxonomy_url(kind="authors", name=author) | safe }}">{{ author }}</a>
+  			{% if page.taxonomies.authors | length > 1 %}
+  			{% if loop.index != page.taxonomies.authors | length %}
+  			{% if loop.index == page.taxonomies.authors | length - 1 %}
+  			and
+  			{% else %}
+  			,
+  			{% endif %}
+  			{% endif %}
+  			{% endif %}
+  			{% endfor %}
   		{% elif config.extra.author -%}
   			<span>{{ config.extra.expressions.written_by | default(value="Written by") }}</span> {{ config.extra.author }}<br>
   		{%- endif %}

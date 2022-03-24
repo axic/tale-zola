@@ -7,10 +7,10 @@ draft = false
 
 [taxonomies]
 tags = ["KaTeX", "Math", "Sample"]
+authors = ["Public"]
 
 [extra]
 katex = true
-author = "Public"
 +++
 
 Mathematical notation in a project can be enabled by using third party JavaScript libraries.
